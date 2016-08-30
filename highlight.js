@@ -1,75 +1,76 @@
-var highlighter = function(context) {
-
 // GET all divs in page body + total no.
 var itemsall = document.body.getElementsByTagName('*');
 var il = itemsall.length;
+var oldborder;
 
+// Containing function
+var highlighter = function(context) {
+
+// Loop to cycle through each DOM element and apply an outline according to display type.
 for (var i=0; i < il; i++) {
   var els = (itemsall[i]);
   dispstyle = window.getComputedStyle(els),
   disp = dispstyle.getPropertyValue('display');
-  oldborder = dispstyle.getPropertyValue('border');
     switch(disp) {
         case "block":
-            els.style.border = '1px solid blue';
+            els.style.outline = '1px solid blue';
             break;
         case "list-item":
-            els.style.border = '1px solid darkgrey';
+            els.style.outline = '1px solid darkgrey';
             break;
         case "inline-block":
-            els.style.border = '1px solid cyan';
+            els.style.outline = '1px solid cyan';
             break;
         case "inline":
-            els.style.border = '1px solid purple';
+            els.style.outline = '1px solid purple';
             break;
         case "flex":
-            els.style.border = '1px solid green';
+            els.style.outline = '1px solid green';
             break;
         case "none":
-            els.style.border = '1px dotted black';
+            els.style.outline = '1px dotted black';
             break;
         default:
-            console.log("default");
-            console.log(oldborder);
-            els.style.border = '1px dotted grey';
+            els.style.outline = '1px dotted grey';
             break;
     };
 }
+
+// Reset function - removes all outline properties. Better way to do this?
+window.revert = function() {
+  for (var i=0; i < il; i++) {
+    var els = (itemsall[i]);
+    els.style.removeProperty("outline");
+  };
 };
+
+};
+
+// Call main function.
 highlighter(window);
+// Call reset function.
+revert(window);
 
-var revert() {
+// ----------------------------------------------------------------------
 
+//Array for holding colours instead of switch params???
+var display_set = {
+    block : "blue",
+    'inline-block' : "orange",
+    inline : "red",
+    flex : "green"
 }
-
-    console.log("listed");
-    console.log(oldborder);
-
-
-//Array for holding colours???
-    var display_set = {
-        block : "blue",
-        'inline-block' : "orange",
-        inline : "red",
-        flex : "green"
-    }
-
-    //Switch off how?
-var removestyle = function(y) {
-	y.removeAttribute("style");
+//Switch off differently? Fill an array with old border style and the re-populate.
+var storeborders = [];
+oldborder = dispstyle.getPropertyValue('border');
+storeborders.push(oldborder);
+var revert = function() {
+  for (var i=0; i < il; i++) {
+    var els = (itemsall[i]);
+    els.style.outline = storeoutlines[i];
+  };
 };
-for (i = 1; i < il; i++) {
-	els = itemsall[i];
-	removestyle(els);
-}
-
-
+//Different approach to getting all DOM elements initially.
 if (document.querySelectorAll) {
     var allDivs = document.querySelectorAll("div");
-    var allLists = document.querySelectorAll("li");
-    var allLinks = document.querySelectorAll("a");
-    var allHeaderOnes = document.querySelectorAll("h1");
 }
-else {
-	console.log("None Found");
-	}
