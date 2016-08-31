@@ -5,18 +5,33 @@
   "description": "Chrome extension for highlighting DOM elements for better debugging of layout issues",
   "version": "1.0",
   "author": "Chris Snowden",
+  "default_locale": "en",
+  "icons": {
+    "19": "icon19dark.png",
+    "38": "icon38dark.png",
+    "128": "icon128dark.png"
+  },
 
   "browser_action": {
     "default_icon": {
       "19": "icon19.png",
       "38": "icon38dark.png"
     },
-    "default_popup": "popup.html",
-    "default_title": "Highlight DOM",
-    "setBadgeText": "ON"
+    "default_title": "Highlight DOM"
   },
+
+  "background": {
+    "scripts": ["highlight.js"],
+    "persistent": false
+  },
+
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"
-  ]
+  ],
+
+  "web_accessible_resources": [
+   "*.png",
+   "highlight.js"
+ ]
 }

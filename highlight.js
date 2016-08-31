@@ -46,10 +46,33 @@ window.revert = function() {
 
 };
 
+/* Comment temporarily
 // Call main function.
 highlighter(window);
 // Call reset function.
 revert(window);
+*/
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+  // No tabs or host permissions needed!
+  var iconOn = false;
+
+	console.log('click');
+	if (iconOn == false) {
+		highlighter(window);
+		iconOn = true;
+		console.log('clickon');
+	}
+	else if (iconOn == true) {
+		revert(window);
+		iconOn = false;
+		console.log('clickoff');
+	}
+
+});
+
+
+
 
 // ----------------------------------------------------------------------
 
