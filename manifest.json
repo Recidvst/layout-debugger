@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "element-highlighter",
+  "description": "Chrome extension for highlighting DOM elements for better debugging of layout issues",
+  "version": "1.0",
+  "author": "Chris Snowden",
+
+  "browser_action": {
+    "default_icon": {
+      "19": "icon19.png",
+      "38": "icon38dark.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Highlight DOM",
+    "setBadgeText": "ON"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+}
