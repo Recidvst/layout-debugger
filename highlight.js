@@ -46,12 +46,6 @@ window.revert = function() {
 
 };
 
-/* Comment temporarily
-// Call main function.
-highlighter(window);
-// Call reset function.
-revert(window);
-*/
 
 chrome.browserAction.onClicked.addListener(function(tab) {
   // No tabs or host permissions needed!
@@ -71,7 +65,12 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 });
 
-
+/* Comment temporarily
+// Call main function.
+highlighter(window);
+// Call reset function.
+revert(window);
+*/
 
 
 // ----------------------------------------------------------------------
