@@ -3,7 +3,7 @@ alert("testfileloaded");
 var itemsall = document.body.getElementsByTagName('*');
 var il = itemsall.length;
 var oldborder;
-var iconOn = false;
+var iconOn;
 
 // Containing function
 var highlighter = function(context) {
@@ -37,6 +37,7 @@ for (var i=0; i < il; i++) {
             break;
     };
 }
+iconOn = true;
 
 // Reset function - removes all outline properties. Better way to do this?
 window.revert = function() {
@@ -44,23 +45,9 @@ window.revert = function() {
     var els = (itemsall[i]);
     els.style.removeProperty("outline");
   };
+  iconOn = false;
 };
 
 };
 
 alert("testfileread");
-
-
-function switchtrigger() {
-  if (iconOn == false) {
-    highlighter(window);
-    iconOn = true;
-  }
-  else if (iconOn == true) {
-    revert(window);
-    iconOn = false;
-  }
-
-};
-
-alert("testfileacted");
