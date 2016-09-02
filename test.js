@@ -1,4 +1,5 @@
-// GET all divs in page body + total no.
+alert("testfileloaded");
+
 var itemsall = document.body.getElementsByTagName('*');
 var il = itemsall.length;
 var oldborder;
@@ -47,9 +48,19 @@ window.revert = function() {
 
 };
 
+alert("testfileread");
 
-  chrome.browserAction.onClicked.addListener(highlighter);
-  highlighter(window);
 
-  chrome.browserAction.onClicked.addListener(revert);
-  revert(window);
+function switchtrigger() {
+  if (iconOn == false) {
+    highlighter(window);
+    iconOn = true;
+  }
+  else if (iconOn == true) {
+    revert(window);
+    iconOn = false;
+  }
+
+};
+
+alert("testfileacted");

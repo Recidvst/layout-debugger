@@ -2,7 +2,6 @@
 var itemsall = document.body.getElementsByTagName('*');
 var il = itemsall.length;
 var oldborder;
-var iconOn = false;
 
 // Containing function
 var highlighter = function(context) {
@@ -47,9 +46,33 @@ window.revert = function() {
 
 };
 
+// Call main function.
+highlighter(window);
+// Call reset function.
+revert(window);
 
-  chrome.browserAction.onClicked.addListener(highlighter);
-  highlighter(window);
+// ----------------------------------------------------------------------
 
-  chrome.browserAction.onClicked.addListener(revert);
-  revert(window);
+/*
+//Array for holding colours instead of switch params???
+var display_set = {
+    block : "blue",
+    'inline-block' : "orange",
+    inline : "red",
+    flex : "green"
+}
+//Switch off differently? Fill an array with old border style and the re-populate.
+var storeborders = [];
+oldborder = dispstyle.getPropertyValue('border');
+storeborders.push(oldborder);
+var revert = function() {
+  for (var i=0; i < il; i++) {
+    var els = (itemsall[i]);
+    els.style.outline = storeoutlines[i];
+  };
+};
+//Different approach to getting all DOM elements initially.
+if (document.querySelectorAll) {
+    var allDivs = document.querySelectorAll("div");
+}
+*/

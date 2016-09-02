@@ -13,7 +13,7 @@
 
   "browser_action": {
     "default_icon": {
-      "19": "icon19.png",
+      "19": "icon19dark.png",
       "38": "icon38dark.png"
     },
     "default_title": "Toggle highlighter"
@@ -25,8 +25,8 @@
   },
 
   "content_scripts": [{
-    "matches": ["http://*/*", "https://*/*"],
-    "js": ["highlight.js"]
+    "js": ["background.js"],
+    "matches": ["http://*/*", "https://*/*"]
   }],
 
   "permissions": [
@@ -36,6 +36,7 @@
 
   "web_accessible_resources": [
    "*.png",
-   "highlight.js"
+   "background.js",
+   "test.js"
  ]
 }
