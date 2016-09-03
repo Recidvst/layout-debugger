@@ -1,8 +1,7 @@
-// GET all divs in page body + total no.
 var itemsall = document.body.getElementsByTagName('*');
 var il = itemsall.length;
 var oldborder;
-var iconOn = false;
+var iconOn;
 
 // Containing function
 var highlighter = function(context) {
@@ -16,26 +15,51 @@ for (var i=0; i < il; i++) {
         case "block":
             els.style.outline = '1px solid blue';
             break;
-        case "list-item":
-            els.style.outline = '1px solid darkgrey';
+        case "flex":
+            els.style.outline = '1px solid green';
+            break;
+        case "grid":
+            els.style.outline = '1px solid cyan';
+            break;
+        case "table":
+            els.style.outline = '1px solid greenyellow';
             break;
         case "inline-block":
-            els.style.outline = '1px solid cyan';
+            els.style.outline = '1px solid darkgoldenrod';
             break;
         case "inline":
             els.style.outline = '1px solid purple';
             break;
-        case "flex":
-            els.style.outline = '1px solid green';
+        case "inline-flex":
+            els.style.outline = '1px solid darkorange';
+            break;
+        case "inline-grid":
+            els.style.outline = '1px solid darkorange';
+            break;
+        case "inline-table":
+            els.style.outline = '1px solid darkorange';
+            break;
+        case "list-item":
+            els.style.outline = '1px solid yellow';
+            break;
+        case "run-in":
+            els.style.outline = '1px solid bisque';
             break;
         case "none":
             els.style.outline = '1px dotted black';
+            break;
+        case "inherit":
+            els.style.outline = '1px solid lightgrey';
+            break;
+        case "initial":
+            els.style.outline = '1px solid lightgrey';
             break;
         default:
             els.style.outline = '1px dotted grey';
             break;
     };
 }
+iconOn = true;
 
 // Reset function - removes all outline properties. Better way to do this?
 window.revert = function() {
@@ -43,13 +67,7 @@ window.revert = function() {
     var els = (itemsall[i]);
     els.style.removeProperty("outline");
   };
+  iconOn = false;
 };
 
 };
-
-
-  chrome.browserAction.onClicked.addListener(highlighter);
-  highlighter(window);
-
-  chrome.browserAction.onClicked.addListener(revert);
-  revert(window);
