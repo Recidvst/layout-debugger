@@ -20,13 +20,13 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 
   if (toggle == "on") {
       chrome.browserAction.setIcon ({
-        path : "images/icon19darktick.png"
+        path : "images/icon19dark.png"
       });
       toggle = "off";
   }
   else {
       chrome.browserAction.setIcon({
-      path : "images/icon19dark.png"
+      path : "images/icon19darktick.png"
       });
       toggle = "on";
   }
