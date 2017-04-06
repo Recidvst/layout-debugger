@@ -1,12 +1,13 @@
-var itemsall = document.body.getElementsByTagName('*');
-var il = itemsall.length;
-var oldborder;
-var iconOn;
-
+var itemsall = document.body.getElementsByTagName('*'),
+    il = itemsall.length,
+    toggle;
+// Reset ext icon
+window.onload = function() {
+  chrome.runtime.sendMessage({toggle: false}, function(response) {});
+};
 // Containing function
 var highlighter = function(context) {
-
-// Loop to cycle through each DOM element and apply an outline according to display type.
+// Loop to cycle through each DOM element and apply an outline.
 for (var i=0; i < il; i++) {
   var els = (itemsall[i]);
   dispstyle = window.getComputedStyle(els),
@@ -59,15 +60,15 @@ for (var i=0; i < il; i++) {
             break;
     };
 }
-iconOn = true;
-
-// Reset function - removes all outline properties. Better way to do this?
+toggle = true;
+chrome.runtime.sendMessage({toggle: true}, function(response) {});
+// Reset function - removes all outline properties.
 window.revert = function() {
   for (var i=0; i < il; i++) {
     var els = (itemsall[i]);
     els.style.removeProperty("outline");
   };
-  iconOn = false;
+  toggle = false;
+  chrome.runtime.sendMessage({toggle: false}, function(response) {});
 };
-
 };

@@ -25,18 +25,19 @@
   },
 
   "content_scripts": [{
-    "js": ["background.js"],
-    "matches": ["http://*/*", "https://*/*"]
+      "matches": ["<all_urls>"],
+      "js": ["highlight.js"]
   }],
 
   "permissions": [
     "activeTab",
-    "https://ajax.googleapis.com/"
+    "https://ajax.googleapis.com/",
+    "tabs",
+    "<all_urls>"
   ],
 
   "web_accessible_resources": [
    "*.png",
-   "background.js",
    "highlight.js"
  ]
 }
