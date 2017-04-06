@@ -3,7 +3,7 @@
 
   "name": "element-highlighter",
   "description": "Chrome extension for highlighting DOM elements for better debugging of layout issues",
-  "version": "1.0",
+  "version": "1.5",
   "author": "Chris Snowden",
   "icons": {
     "19": "images/icon19dark.png",

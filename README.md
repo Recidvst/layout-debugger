@@ -4,8 +4,8 @@ Chrome extension for highlighting DOM elements, designed to assist with better d
 Adds a distinct colour outline to each visible DOM element according to it's *display* type. E.g..
 
 ```scss
-display: block; => $blue;
-display: inline; => $purple;
-display: flex; => $green;
+display: block; => blue;
+display: inline; => purple;
+display: flex; => green;
 ```
 etc..
