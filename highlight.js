@@ -64,7 +64,7 @@ for (var i=0; i < il; i++) {
     // add overflow warning
     function addOverflowWarning(parent,offset) {
     	var overflowWarning = document.createElement('span');
-        overflowWarning.className= "overflow-warning-" + i;
+        overflowWarning.className= "overflow-warning";
         overflowWarning.style.position = "absolute";
         overflowWarning.style.top = "0px";
         overflowWarning.style.left = "0px";
@@ -76,6 +76,7 @@ for (var i=0; i < il; i++) {
       	overflowWarning.style.borderBottom = "15px solid transparent";
     	overflowWarning.innerHTML = '<span style="position:absolute; color: #fff; left: -36px; top: -12px; font-size: 16px;"> ! </span>';
     	parent.appendChild(overflowWarning);
+      parent.style.position = "relative";
     }
     if (offset.width > vw) {
   		els.setAttribute("style", "outline: 2px dashed red");
