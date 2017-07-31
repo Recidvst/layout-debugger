@@ -5,7 +5,7 @@ var vw = window.innerWidth;
 for (var i=0; i < il; i++) {
 	if (itemsall[i].offsetWidth > vw) {
     	console.log(itemsall[i]);
-		itemsall[i].setAttribute("style", "border: 5px solid red"); 
+		itemsall[i].setAttribute("style", "border: 2px dashed red"); 
 		var topOffset = itemsall[i].getBoundingClientRect().top;
 		addOverflowWarning(itemsall[i],topOffset);
 	}
@@ -24,9 +24,9 @@ function addOverflowWarning(parent,offset) {
 	overflowWarning.style.width = "0";
 	overflowWarning.style.zIndex = "999";
 	
-	overflowWarning.style.borderTop = "20px solid transparent";
-	overflowWarning.style.borderLeft = "40px solid red";
-	overflowWarning.style.borderBottom = "20px solid transparent";
+	overflowWarning.style.borderTop = "10px solid transparent";
+	overflowWarning.style.borderLeft = "30px solid red";
+	overflowWarning.style.borderBottom = "10px solid transparent";
 		
 	parent.appendChild(overflowWarning);
 }
