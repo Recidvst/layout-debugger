@@ -3,11 +3,10 @@ var il = itemsall.length;
 var vw = window.innerWidth;
 
 for (var i=0; i < il; i++) {
-	if (itemsall[i].offsetWidth > vw) {
-    	console.log(itemsall[i]);
+	var offset = itemsall[i].getBoundingClientRect();
+	if (offset.width > vw) {
 		itemsall[i].setAttribute("style", "border: 2px dashed red"); 
-		var topOffset = itemsall[i].getBoundingClientRect().top;
-		addOverflowWarning(itemsall[i],topOffset);
+		addOverflowWarning(itemsall[i],offset.top);
 	}
 };
 
@@ -16,17 +15,19 @@ function addOverflowWarning(parent,offset) {
 	var overflowWarning = document.createElement('span');
         overflowWarning.className= "overflowWarning";
 
-        overflowWarning.style.position = "fixed";
-        overflowWarning.style.top = offset;
+        overflowWarning.style.position = "absolute";
+        overflowWarning.style.top = offset + "px";
         overflowWarning.style.right = "0";
 	
 	overflowWarning.style.height = "0";
 	overflowWarning.style.width = "0";
 	overflowWarning.style.zIndex = "999";
 	
-	overflowWarning.style.borderTop = "10px solid transparent";
+	overflowWarning.style.borderTop = "15px solid transparent";
 	overflowWarning.style.borderLeft = "30px solid red";
-	overflowWarning.style.borderBottom = "10px solid transparent";
-		
+	overflowWarning.style.borderBottom = "15px solid transparent";
+	
+	overflowWarning.innerHTML = '<span style="position:absolute; color: #fff; left: -25px; top: -12px;"> ! </span>';	    
+	
 	parent.appendChild(overflowWarning);
 }
