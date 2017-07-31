@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "element-highlighter",
-  "description": "Chrome extension for highlighting DOM elements for better debugging of layout issues",
-  "version": "1.5",
+  "name": "Layout Debugger",
+  "description": "Chrome extension for highlighting DOM elements to better debug layout issues",
+  "version": "1.6",
   "author": "Chris Snowden",
   "icons": {
     "19": "images/icon19dark.png",
