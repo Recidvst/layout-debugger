@@ -5,7 +5,7 @@ var vw = window.innerWidth;
 for (var i=0; i < il; i++) {
 	var offset = itemsall[i].getBoundingClientRect();
 	if (offset.width > vw) {
-		itemsall[i].setAttribute("style", "border: 2px dashed red"); 
+		itemsall[i].setAttribute("style", "outline: 2px dashed red"); 
 		addOverflowWarning(itemsall[i],offset.top);
 	}
 };
@@ -13,7 +13,7 @@ for (var i=0; i < il; i++) {
 // add indicator - red triangle? Make sure to kill it after click off.
 function addOverflowWarning(parent,offset) {
 	var overflowWarning = document.createElement('span');
-        overflowWarning.className= "overflowWarning";
+        overflowWarning.className= "overflow-warning";
 
         overflowWarning.style.position = "absolute";
         overflowWarning.style.top = offset + "px";
@@ -30,4 +30,13 @@ function addOverflowWarning(parent,offset) {
 	overflowWarning.innerHTML = '<span style="position:absolute; color: #fff; left: -25px; top: -12px;"> ! </span>';	    
 	
 	parent.appendChild(overflowWarning);
+}
+
+
+// revert fn include
+var warningsList = document.querySelectorAll('.overflow-warning');
+for (var i=0; i < warningsList.length; i++) {
+	if ( warningsList[i] != undefined ) {
+	warningsList[i].parentNode.removeChild(warningsList[i]);
+	}
 }
