@@ -12,3 +12,5 @@ display: inline; => purple;
 overflowing the viewport => red!
 ```
 etc..
+
+Get it here: https://chrome.google.com/webstore/detail/element-highlighter/gkamnoiedmidgolhlihkamjpfccohilb
