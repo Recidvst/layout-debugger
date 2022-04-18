@@ -4,7 +4,7 @@
   "name": "Layout Debugger",
   "short_name": "Layout Debugger",
   "description": "Chrome extension for highlighting DOM elements to better debug layout issues",
-  "version": "1.6",
+  "version": "1.7",
   "author": "Chris Snowden",
   "icons": {
     "19": "images/icon19dark.png",
